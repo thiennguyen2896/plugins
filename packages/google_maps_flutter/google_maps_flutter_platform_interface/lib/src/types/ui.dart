@@ -27,6 +27,17 @@ enum MapType {
   hybrid,
 }
 
+enum GestureHandlingType {
+  /// Disable gestures on the map.
+  none,
+  /// The default gestureHandling value auto switches between greedy and cooperative based upon whether the map is contained within an <iframe>.
+  auto,
+  /// Allowing the user to scroll the page normally, without zooming or panning the map. Users can zoom the map by clicking the zoom controls. They can also zoom and pan by using two-finger movements on the map for touchscreen devices.
+  cooperative,
+  /// This map reacts to all touch gestures and scroll events unlike cooperative.
+  greedy
+}
+
 /// Bounds for the map camera target.
 // Used with [GoogleMapOptions] to wrap a [LatLngBounds] value. This allows
 // distinguishing between specifying an unbounded target (null `LatLngBounds`)

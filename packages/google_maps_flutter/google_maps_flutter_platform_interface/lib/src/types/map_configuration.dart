@@ -33,6 +33,7 @@ class MapConfiguration {
     this.indoorViewEnabled,
     this.trafficEnabled,
     this.buildingsEnabled,
+    this.gestureHandling
   });
 
   /// True if the compass UI should be shown.
@@ -90,6 +91,8 @@ class MapConfiguration {
   /// True if 3D building display should be enabled.
   final bool? buildingsEnabled;
 
+  final GestureHandlingType? gestureHandling;
+
   /// Returns a new options object containing only the values of this instance
   /// that are different from [other].
   MapConfiguration diffFrom(MapConfiguration other) {
@@ -143,6 +146,8 @@ class MapConfiguration {
           trafficEnabled != other.trafficEnabled ? trafficEnabled : null,
       buildingsEnabled:
           buildingsEnabled != other.buildingsEnabled ? buildingsEnabled : null,
+      gestureHandling:
+          gestureHandling != other.gestureHandling ? gestureHandling : null, 
     );
   }
 
@@ -171,6 +176,7 @@ class MapConfiguration {
       indoorViewEnabled: diff.indoorViewEnabled ?? indoorViewEnabled,
       trafficEnabled: diff.trafficEnabled ?? trafficEnabled,
       buildingsEnabled: diff.buildingsEnabled ?? buildingsEnabled,
+      gestureHandling: diff.gestureHandling ?? gestureHandling,
     );
   }
 
@@ -193,7 +199,8 @@ class MapConfiguration {
       padding == null &&
       indoorViewEnabled == null &&
       trafficEnabled == null &&
-      buildingsEnabled == null;
+      buildingsEnabled == null &&
+      gestureHandling == null;
 
   @override
   bool operator ==(Object other) {
@@ -221,7 +228,8 @@ class MapConfiguration {
         padding == other.padding &&
         indoorViewEnabled == other.indoorViewEnabled &&
         trafficEnabled == other.trafficEnabled &&
-        buildingsEnabled == other.buildingsEnabled;
+        buildingsEnabled == other.buildingsEnabled &&
+        gestureHandling == other.gestureHandling;
   }
 
   @override
@@ -244,5 +252,6 @@ class MapConfiguration {
         indoorViewEnabled,
         trafficEnabled,
         buildingsEnabled,
+        gestureHandling
       );
 }

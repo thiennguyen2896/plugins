@@ -123,6 +123,7 @@ class GoogleMap extends StatefulWidget {
     this.onCameraIdle,
     this.onTap,
     this.onLongPress,
+    this.gestureHandling = GestureHandlingType.auto
   })  : assert(initialCameraPosition != null),
         super(key: key);
 
@@ -271,6 +272,8 @@ class GoogleMap extends StatefulWidget {
 
   /// Enables or disables showing 3D buildings where available
   final bool buildingsEnabled;
+
+  final GestureHandlingType gestureHandling;
 
   /// Which gestures should be consumed by the map.
   ///
@@ -553,5 +556,6 @@ MapConfiguration _configurationFromMapWidget(GoogleMap map) {
     indoorViewEnabled: map.indoorViewEnabled,
     trafficEnabled: map.trafficEnabled,
     buildingsEnabled: map.buildingsEnabled,
+    gestureHandling: map.gestureHandling
   );
 }
